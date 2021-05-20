@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RetrofitApi {
 
     companion object {
-        fun getRetrofit() : Retrofit {
+        fun getRetrofit(): Retrofit {
 
             var retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -17,5 +17,4 @@ class RetrofitApi {
 
         }
     }
-
 }

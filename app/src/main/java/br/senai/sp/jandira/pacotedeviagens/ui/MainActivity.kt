@@ -1,4 +1,4 @@
-package br.senai.sp.jandira.pacotedeviagens
+package br.senai.sp.jandira.pacotedeviagens.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import br.senai.sp.jandira.pacotedeviagens.R
 import br.senai.sp.jandira.pacotedeviagens.model.DestinosRecentes
 import br.senai.sp.jandira.pacotedeviagens.adapter.DestinoRecenteAdapter
 import br.senai.sp.jandira.pacotedeviagens.api.DestinosRecentesCall
