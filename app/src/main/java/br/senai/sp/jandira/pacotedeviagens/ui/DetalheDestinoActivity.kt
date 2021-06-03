@@ -29,6 +29,7 @@ class DetalheDestinoActivity : AppCompatActivity() {
     lateinit var rvGaleriaFotosDestino: RecyclerView
     lateinit var galeriaFotosDestinoAdapter: GaleriaFotosDestinoAdapter
     lateinit var destinoRecente: DestinosRecentes
+    lateinit var tvApartirDe: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +43,8 @@ class DetalheDestinoActivity : AppCompatActivity() {
 
         rvGaleriaFotosDestino = findViewById(R.id.rv_galeria_fotos_destino)
         galeriaFotosDestinoAdapter = GaleriaFotosDestinoAdapter(this)
-        rvGaleriaFotosDestino.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        rvGaleriaFotosDestino.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvGaleriaFotosDestino.adapter = galeriaFotosDestinoAdapter
 
         // Lista de fotos que preencherão a recycleView
@@ -74,14 +76,23 @@ class DetalheDestinoActivity : AppCompatActivity() {
         tvValor = findViewById(R.id.tv_valor)
         tvTextoDescricao = findViewById(R.id.tv_texto_descricao)
         collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar)
+        tvApartirDe = findViewById(R.id.tv_a_partir_de)
 
         destinoRecente =
             intent.getSerializableExtra("destino") as DestinosRecentes
 
-        tvLocal.text = destinoRecente.nome
-        tvValor.text = destinoRecente.valor.toString()
+        tvLocal.text = "${destinoRecente.nomeCidade} - ${destinoRecente.siglaEstado}"
+
+        if (destinoRecente.valor == 0.0) {
+            tvValor.text = "GRATIS"
+            tvApartirDe.text = ""
+        } else {
+            tvValor.text = "R$ ${String.format("%.2f", destinoRecente.valor)}"
+        }
+
         tvTextoDescricao.text = destinoRecente.descricao
         collapsingToolbarLayout.title = destinoRecente.nome
+
 
         if (destinoRecente.urlFoto != "") {
             Glide.with(this).load(destinoRecente.urlFoto).into(ivFotoDestino)
