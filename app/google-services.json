@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "864287611244",
+    "project_id": "pacote-de-viagens",
+    "storage_bucket": "pacote-de-viagens.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864287611244:android:b834d821ab69f7f74c3b49",
+        "android_client_info": {
+          "package_name": "br.senai.sp.jandira.pacotedeviagens"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864287611244-n8piq3qk2728qpbghs7n2m43af6tih0b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.senai.sp.jandira.pacotedeviagens",
+            "certificate_hash": "fc067da81bb8febae92881b46c721f081fdf4cb0"
+          }
+        },
+        {
+          "client_id": "864287611244-r5tj64kqqbgrk9s6jrkq8736rjm32cmi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoaI447tHrGI0F9HQ2YQeWOPjYuXGU8PA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "864287611244-r5tj64kqqbgrk9s6jrkq8736rjm32cmi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
