@@ -1,5 +1,6 @@
 package br.senai.sp.jandira.pacotedeviagens.ui
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -50,7 +51,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private fun updateUI() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
-        //finish()
+        finish()
     }
 
     override fun onClick(view: View) {
@@ -74,11 +75,17 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             val task:Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
             val user = task.getResult(ApiException::class.java)
             if (user != null) {
-                Log.d("xpto", user.displayName.toString())
-                Log.d("xpto", user.email.toString())
-                Log.d("xpto", user.photoUrl.toString())
-                Log.d("xpto", user.isExpired.toString())
-                Log.d("xpto", user.familyName.toString())
+                val dadosUsuario = getSharedPreferences("dados_usuario", Context.MODE_PRIVATE)
+                val editor = dadosUsuario.edit()
+
+                editor.putString("display_name", user.displayName)
+                editor.putString("family_name", user.familyName)
+                editor.putString("email", user.email)
+                editor.putString("photo_url", user.photoUrl.toString())
+                editor.putString("id", user.id)
+                editor.apply()
+
+                updateUI()
             }
         }
     }
